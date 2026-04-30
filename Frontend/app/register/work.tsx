@@ -88,7 +88,7 @@ export default function WorkScreen() {
       Alert.alert("Thành công", response.message || "Đăng ký thành công", [
         {
           text: "OK",
-          onPress: () => router.replace("/messages"),
+          onPress: () => router.replace("/login"),
         },
       ]);
     } catch (error) {

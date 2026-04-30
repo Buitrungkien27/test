@@ -19,18 +19,18 @@ export default function ForgotPasswordScreen() {
     try {
       setSubmitting(true);
       // THAY ĐỊA CHỈ IP BACKEND CỦA BẠN VÀO ĐÂY
-      const response = await axios.post("http://192.168.1.13:5000/api/auth/forgot-password", {
+      const response = await axios.post("http://192.168.1.18:5000/api/auth/forgot-password", {
         phoneNumber: phone
       });
 
       if (response.data.success) {
         Alert.alert("Thành công", "Bạn sẽ nhận được cuộc gọi đọc mã OTP từ Vonage.", [
-          { 
-            text: "Tiếp tục", 
+          {
+            text: "Tiếp tục",
             onPress: () => router.push({
               pathname: "/verify-otp",
               params: { requestId: response.data.requestId, phoneNumber: phone }
-            }) 
+            })
           }
         ]);
       }
